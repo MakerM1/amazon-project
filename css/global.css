@@ -421,8 +421,9 @@ body header .buttons-box .cart:hover {
       -ms-flex-align: center;
           align-items: center;
 }
-.items .items-box .item .stars i {
-  font-size: 19px;
+.items .items-box .item .stars img {
+  width: 100px;
+  height: 20px;
 }
 .items .items-box .item .stars .ratings {
   margin-left: 10px;
