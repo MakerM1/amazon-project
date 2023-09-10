@@ -358,6 +358,11 @@ body header .buttons-box .cart:hover {
 .items {
   margin-top: 61px;
 }
+@media (max-width: 501px) {
+  .items {
+    margin-top: 130px;
+  }
+}
 .items .items-box {
   max-width: 100%;
   width: 100%;
@@ -371,12 +376,16 @@ body header .buttons-box .cart:hover {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 .items .items-box .item {
   max-width: 186px;
   width: 100%;
   height: 411px;
   border-right: 1px solid rgb(231, 231, 231);
+  border-top: 1px solid rgb(231, 231, 231);
   padding: 40px 25px 25px 25px;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
@@ -387,12 +396,18 @@ body header .buttons-box .cart:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   border-bottom: none;
+}
+@media (max-width: 475px) {
+  .items .items-box .item {
+    border-left: 1px solid rgb(231, 231, 231);
+  }
 }
 .items .items-box .item .img-placeholder {
   width: 162px;
