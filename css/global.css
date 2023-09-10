@@ -407,10 +407,13 @@ body header .buttons-box .cart:hover {
 @media (max-width: 475px) {
   .items .items-box .item {
     border-left: 1px solid rgb(231, 231, 231);
+    max-width: 120px;
+    border-right: none;
   }
 }
 .items .items-box .item .img-placeholder {
-  width: 162px;
+  max-width: 162px;
+  width: 100%;
   height: 180px;
   display: block;
   margin: 0 auto;
@@ -421,6 +424,11 @@ body header .buttons-box .cart:hover {
   color: rgb(33, 33, 33);
   font-size: 17px;
   font-weight: 600;
+}
+@media (max-width: 475px) {
+  .items .items-box .item .item-name {
+    font-size: 15px;
+  }
 }
 .items .items-box .item .stars {
   display: -webkit-box;
