@@ -94,22 +94,53 @@
                 }
             }
 
-            button {
-                margin-top: 50px;
-                background-color: rgb(255, 216, 20);
-                border: none;
+            .button-div {
                 width: 100%;
-                padding: 8px;
-                border-radius: 50px;
-                cursor: pointer;
-                transition: all 0.15s;
+                margin-top: 50px;
+                position: relative;
 
-                &:hover {
-                    background-color: rgb(214, 181, 18);
+                .added-message {
+                    display: flex;
+                    position: absolute;
+                    left: 0;
+                    top: -30px;
+                    opacity: 0;
+                    transition: all 0.2s;
+
+                    p {
+                        color: #067d62;
+                        font-weight: 600;
+                        margin-left: 5px;
+                        font-size: 18px;
+                    }
+
+                    i {
+                        font-size: 18px;
+                    }
+
+                    &.active {
+                        opacity: 1;
+                    }
+
                 }
 
-                &:active {
-                    background-color: rgb(255, 222, 60);
+
+                button {
+                    background-color: rgb(255, 216, 20);
+                    border: none;
+                    width: 100%;
+                    padding: 8px;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    transition: all 0.15s;
+
+                    &:hover {
+                        background-color: rgb(214, 181, 18);
+                    }
+
+                    &:active {
+                        background-color: rgb(255, 222, 60);
+                    }
                 }
             }
         }

@@ -163,6 +163,7 @@ body header {
   left: 0;
   top: 0;
   right: 0;
+  z-index: 1000000000;
 }
 @media (max-width: 501px) {
   body header {
@@ -471,8 +472,35 @@ body header .buttons-box .cart:hover {
 .items .items-box .item select:focus {
   outline: 2px solid #F08804;
 }
-.items .items-box .item button {
+.items .items-box .item .button-div {
+  width: 100%;
   margin-top: 50px;
+  position: relative;
+}
+.items .items-box .item .button-div .added-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: -30px;
+  opacity: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.items .items-box .item .button-div .added-message p {
+  color: #067d62;
+  font-weight: 600;
+  margin-left: 5px;
+  font-size: 18px;
+}
+.items .items-box .item .button-div .added-message i {
+  font-size: 18px;
+}
+.items .items-box .item .button-div .added-message.active {
+  opacity: 1;
+}
+.items .items-box .item .button-div button {
   background-color: rgb(255, 216, 20);
   border: none;
   width: 100%;
@@ -482,9 +510,9 @@ body header .buttons-box .cart:hover {
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
-.items .items-box .item button:hover {
+.items .items-box .item .button-div button:hover {
   background-color: rgb(214, 181, 18);
 }
-.items .items-box .item button:active {
+.items .items-box .item .button-div button:active {
   background-color: rgb(255, 222, 60);
 }/*# sourceMappingURL=global.css.map */

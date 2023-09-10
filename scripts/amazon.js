@@ -16,7 +16,7 @@ products.forEach((product) => {
       <p class="ratings">${product.rating.count}</p>
     </div>
     <p class="price">$${(product.priceCents / 100).toFixed(2)}</p>
-    <select name="" id="">
+    <select name="" id="" class="product-cuantity-${product.id}">
       <option selected value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -28,8 +28,11 @@ products.forEach((product) => {
       <option value="9">9</option>
       <option value="10">10</option>
     </select>
-    <button class="add-to-cart-button button-primary js-add-to-cart"
-    data-product-id='${product.id}'>Add to Cart</button>
+    <div class="button-div">
+    <div class="added-message added-message-${product.id}"><i class="fa-solid fa-circle-check" style="color: #067d62;"></i> <p class="added">Added</p></div>
+      <button class="add-to-cart-button button-primary js-add-to-cart"
+      data-product-id='${product.id}'>Add to Cart</button>
+    </div>
   </div>
     `;
 });
@@ -42,6 +45,9 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     const productId = button.dataset.productId
 
     let matchingItem;
+    
+const itemQauntityValue = document.querySelector(`.product-cuantity-${productId}`).value
+console.log(itemQauntityValue)
 
     cart.forEach((item) => {
       if (productId === item.productId) {
@@ -49,12 +55,22 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
       }
     })
 
+    let timeInterval;
+    const added = document.querySelectorAll(`.added-message-${productId}`)
+    added.forEach((added) => {
+      added.classList.add('active')
+      timeInterval = setInterval(() => {
+        added.classList.remove('active')
+        clearInterval(timeInterval)
+      }, 1000)
+    })
+
     if (matchingItem) {
-      matchingItem.quantity += 1;
+      matchingItem.quantity += Number(itemQauntityValue);
     } else {
       cart.push({
         productId: productId,
-        quantity: 1
+        quantity: Number(itemQauntityValue)
       })
     }
 
@@ -67,7 +83,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     const totalCartQuantity = document.getElementById('cart-quantity')
 
     console.log(cart)
-    console.log(cartQuantity)
 
     totalCartQuantity.innerHTML = cartQuantity
 

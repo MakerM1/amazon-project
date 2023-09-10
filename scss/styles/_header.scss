@@ -13,6 +13,7 @@ body {
         left: 0;
         top: 0;
         right: 0;
+        z-index: 1000000000;
 
         @media (max-width: 501px) {
             flex-direction: column;
