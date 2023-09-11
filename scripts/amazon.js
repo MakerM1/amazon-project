@@ -142,10 +142,9 @@ console.log(itemQauntityValue)
 
     const totalCartQuantity = document.getElementById('cart-quantity')
 
-    console.log(cart)
-
     totalCartQuantity.innerHTML = cartQuantity
-    console.log(totalCartQuantity)
+    totalCartQuantity.innerText = cartQuantity
+    console.log(totalCartQuantity.innerHTML)
 
     if (totalCartQuantity.innerHTML > 9) {
       totalCartQuantity.style.left = '25px'
