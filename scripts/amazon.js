@@ -97,3 +97,62 @@ console.log(itemQauntityValue)
     }
   })
 })
+
+
+document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+  button.addEventListener('touchstart', () => {
+    const productId = button.dataset.productId
+
+    let matchingItem;
+    
+const itemQauntityValue = document.querySelector(`.product-cuantity-${productId}`).value
+console.log(itemQauntityValue)
+
+    cart.forEach((item) => {
+      if (productId === item.productId) {
+        matchingItem = item
+      }
+    })
+
+    let timeInterval;
+    const added = document.querySelectorAll(`.added-message-${productId}`)
+    added.forEach((added) => {
+      added.classList.add('active')
+      timeInterval = setInterval(() => {
+        added.classList.remove('active')
+        clearInterval(timeInterval)
+      }, 1000)
+    })
+
+    if (matchingItem) {
+      matchingItem.quantity += Number(itemQauntityValue);
+    } else {
+      cart.push({
+        productId: productId,
+        quantity: Number(itemQauntityValue)
+      })
+    }
+
+    let cartQuantity = 0
+
+    cart.forEach((item) => {
+      cartQuantity += item.quantity
+    })
+
+    const totalCartQuantity = document.getElementById('cart-quantity')
+
+    console.log(cart)
+
+    totalCartQuantity.innerHTML = cartQuantity
+
+    if (totalCartQuantity.innerHTML > 9) {
+      totalCartQuantity.style.left = '25px'
+    }
+
+    if (totalCartQuantity.innerHTML > 99) {
+      totalCartQuantity.style.fontSize = '12px'
+      totalCartQuantity.style.top = '9px'
+      totalCartQuantity.style.left = '24px'
+    }
+  })
+})
