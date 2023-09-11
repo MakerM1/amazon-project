@@ -116,13 +116,14 @@ console.log(itemQauntityValue)
 
     let timeInterval;
     const added = document.querySelectorAll(`.added-message-${productId}`)
-    added.forEach((added) => {
-      added.classList.add('active')
-      timeInterval = setInterval(() => {
-        added.classList.remove('active')
-        clearInterval(timeInterval)
-      }, 1000)
-    })
+
+    added.style.opacity = '1'
+
+    clearTimeout(timeInterval)
+
+    timeInterval = setTimeout(() => {
+      added.style.opacity = '0'
+    }, 1000)
 
     if (matchingItem) {
       matchingItem.quantity += Number(itemQauntityValue);
@@ -144,6 +145,7 @@ console.log(itemQauntityValue)
     console.log(cart)
 
     totalCartQuantity.innerHTML = cartQuantity
+    console.log(totalCartQuantity)
 
     if (totalCartQuantity.innerHTML > 9) {
       totalCartQuantity.style.left = '25px'
