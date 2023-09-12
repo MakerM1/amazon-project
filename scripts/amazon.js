@@ -136,14 +136,14 @@ console.log(itemQauntityValue)
 
     let cartQuantity = 0
 
+    const totalCartQuantity = document.getElementById('cart-quantity')
+
     cart.forEach((item) => {
       cartQuantity += item.quantity
     })
 
-    const totalCartQuantity = document.getElementById('cart-quantity')
+    totalCartQuantity.innerHTML += `${cartQuantity}`
 
-    totalCartQuantity.innerHTML = cartQuantity
-    totalCartQuantity.innerText = cartQuantity
     console.log(totalCartQuantity.innerHTML)
 
     if (totalCartQuantity.innerHTML > 9) {
