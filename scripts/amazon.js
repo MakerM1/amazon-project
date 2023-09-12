@@ -1,5 +1,9 @@
 let productsHTML = '';
 
+const totalCartQuantity = document.getElementById('cart-quantity')
+
+totalCartQuantity.innerHTML = '0'
+
 products.forEach((product) => {
     productsHTML += `
     <div class="item">
@@ -80,71 +84,9 @@ console.log(itemQauntityValue)
       cartQuantity += item.quantity
     })
 
-    const totalCartQuantity = document.getElementById('cart-quantity')
-
-    console.log(cart)
-
     totalCartQuantity.innerHTML = cartQuantity
 
-    if (totalCartQuantity.innerHTML > 9) {
-      totalCartQuantity.style.left = '25px'
-    }
-
-    if (totalCartQuantity.innerHTML > 99) {
-      totalCartQuantity.style.fontSize = '12px'
-      totalCartQuantity.style.top = '9px'
-      totalCartQuantity.style.left = '24px'
-    }
-  })
-})
-
-
-document.querySelectorAll('.js-add-to-cart').forEach((button) => {
-  button.addEventListener('touchstart', () => {
-    const productId = button.dataset.productId
-
-    let matchingItem;
-    
-const itemQauntityValue = document.querySelector(`.product-cuantity-${productId}`).value
-console.log(itemQauntityValue)
-
-    cart.forEach((item) => {
-      if (productId === item.productId) {
-        matchingItem = item
-      }
-    })
-
-    let timeInterval;
-    const added = document.querySelectorAll(`.added-message-${productId}`)
-
-    added.style.opacity = '1'
-
-    clearTimeout(timeInterval)
-
-    timeInterval = setTimeout(() => {
-      added.style.opacity = '0'
-    }, 1000)
-
-    if (matchingItem) {
-      matchingItem.quantity += Number(itemQauntityValue);
-    } else {
-      cart.push({
-        productId: productId,
-        quantity: Number(itemQauntityValue)
-      })
-    }
-
-    let cartQuantity = 0
-
-    const totalCartQuantity = document.getElementById('cart-quantity')
-
-    cart.forEach((item) => {
-      cartQuantity += item.quantity
-    })
-
-    totalCartQuantity.innerHTML += `${cartQuantity}`
-
-    console.log(totalCartQuantity.innerHTML)
+    console.log(cart)
 
     if (totalCartQuantity.innerHTML > 9) {
       totalCartQuantity.style.left = '25px'
