@@ -4,6 +4,7 @@ import { products } from '../data/products.js';
 let productsHTML = '';
 
 const totalCartQuantity = document.getElementById('cart-quantity')
+const totalCartQuantityPhone = document.getElementById('cart-quantity-phone')
 
 totalCartQuantity.innerHTML = '0'
 
@@ -55,6 +56,7 @@ function updateCartQuantity() {
   })
 
   totalCartQuantity.innerHTML = cartQuantity
+  totalCartQuantityPhone.innerHTML = cartQuantity
 
 }
 
@@ -89,6 +91,16 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
       totalCartQuantity.style.fontSize = '12px'
       totalCartQuantity.style.top = '9px'
       totalCartQuantity.style.left = '24px'
+    }
+
+    if (totalCartQuantityPhone.innerHTML > 9) {
+      totalCartQuantityPhone.style.left = '25px'
+    }
+
+    if (totalCartQuantityPhone.innerHTML > 99) {
+      totalCartQuantityPhone.style.fontSize = '12px'
+      totalCartQuantityPhone.style.top = '9px'
+      totalCartQuantityPhone.style.left = '24px'
     }
   })
 })
