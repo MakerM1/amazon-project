@@ -1,3 +1,5 @@
+import {cart} from '../data/cart.js'
+
 let productsHTML = '';
 
 const totalCartQuantity = document.getElementById('cart-quantity')
