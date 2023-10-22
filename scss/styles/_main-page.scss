@@ -28,11 +28,13 @@
             justify-content: space-between;
             align-items: flex-start;
             border-bottom: none;
+            flex: 1;
 
             @media (max-width: 475px) {
                 border-left: 1px solid rgb(231, 231, 231);
                 max-width: 120px;
                 border-right: none;
+                border-right: 1px solid rgb(231, 231, 231);
             }
 
             .img-placeholder {
