@@ -27,6 +27,7 @@ if (amountOfItems.innerHTML === '0') {
 
 import { cart } from "../data/cart.js"
 import { products } from "../data/products.js"
+import { formatPrice } from "./utils/money.js"
 
 let cartSummaryHtml = ''
 
@@ -49,7 +50,7 @@ cart.forEach((cartItem) => {
         <img src="../${matchingProduct.image}" alt="" />
         <div class="text">
           <h3>${matchingProduct.name}</h3>
-          <p class="price">$${matchingProduct.priceCents / 100}</p>
+          <p class="price">$${formatPrice(matchingProduct.priceCents)}</p>
           <p class="quantity">Quantity: ${cartItem.quantity}</p>
           <p class="update">Update</p>
           <p class="delete">Delete</p>
@@ -59,21 +60,21 @@ cart.forEach((cartItem) => {
         <h3>Choose a delivery option:</h3>
         <li>
           <ul>
-            <input type="radio" name="deliveryOption" checked />
+            <input type="radio" name="deliveryOption${matchingProduct.id}" checked />
             <div class="delivery-info">
               <p class="delivery-time">Tuesday, September 26</p>
               <p class="shipping">FREE Shipping</p>
             </div>
           </ul>
           <ul>
-            <input type="radio" name="deliveryOption" />
+            <input type="radio" name="deliveryOption${matchingProduct.id}" />
             <div class="delivery-info">
               <p class="delivery-time">Wednesday, September 20</p>
               <p class="shipping">$4.99 - Shipping</p>
             </div>
           </ul>
           <ul>
-            <input type="radio" name="deliveryOption" />
+            <input type="radio" name="deliveryOption${matchingProduct.id}" />
             <div class="delivery-info">
               <p class="delivery-time">Monday, September 18</p>
               <p class="shipping">$9.99 - Shipping</p>
